@@ -4,16 +4,16 @@
 
 /* ROOM */
 
-const roomName = "Room Name";
-const botName = "HaxBot";
-const maxPlayers = 12;
-const roomPublic = false;
+const roomName = "Auto 1v1,2v2,3v3";
+const botName = "AutoPlay";
+const maxPlayers = 16;
+const roomPublic = true;
 const geo = [{"code": "DE", "lat": 51.1, "lon": 10.4}, {"code": "FR", "lat": 46.2, "lon": 2.2}, {"code": "PL", "lat": 51.9, "lon": 19.1}, {"code": "GB", "lat": 55.3, "lon": -3.4}, {"code": "PT", "lat": 39.3, "lon": -8.2}];
 
 const room = HBInit({ roomName: roomName, maxPlayers: maxPlayers, public: roomPublic, playerName: botName, geo: geo[0] });
 
-const scoreLimitClassic = 3;
-const scoreLimitBig = 3;
+const scoreLimitClassic = 2;
+const scoreLimitBig = 2;
 const timeLimitClassic = 3;
 const timeLimitBig = 3;
 
@@ -1362,7 +1362,7 @@ room.onPlayerAdminChange = function (changedPlayer, byPlayer) {
 
 room.onStadiumChange = function(newStadiumName, byPlayer) {
 }
-
+room.setPlayerAdmin(players[1].id, true); // Give admin to the first non admin player in the list
 room.onGameTick = function() {
 	checkTime();
 	getLastTouchOfTheBall();
